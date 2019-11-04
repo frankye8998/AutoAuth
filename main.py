@@ -24,12 +24,12 @@ if barcodes:
         else:
             issuer = None
         
-
-auths = json.load("2fa-secrets.json")
+with open("2fa-secrets.json") as f:
+    auths = json.load(f)
 if new_auths:
     auths.append({'label': barcodes[0].data.decode("utf-8"), 'secret': qs['secret'][0], 'issuer': issuer})
 with open("2fa-secrets.json", 'w') as f:
-    json.dump(auths)
+    json.dump(auths, f)
 
 class AutoQR(QDialog):
 
