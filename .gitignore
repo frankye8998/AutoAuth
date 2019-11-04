@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+
+.vscode
+
+# Prevent accidentally publishing our 2FA keys
+2fa-secrets.json
